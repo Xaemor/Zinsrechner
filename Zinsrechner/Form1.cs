@@ -12,6 +12,13 @@ namespace Zinsrechner
 {
     public partial class Form1 : Form
     {
+        //Variablen
+        int AusgewählteBerechnung;
+        double Anfangskapital;
+        double Endkapital;
+        int Laufzeit;
+        double Zinssatz;
+
         public Form1()
         {
             InitializeComponent();
@@ -23,6 +30,7 @@ namespace Zinsrechner
             txt_Endkapital.Enabled = true;
             txt_Zinssatz.Enabled = true;
             txt_Laufzeit.Enabled = true;
+            AusgewählteBerechnung = 1;
         }
 
         private void bt_Zinssatz_CheckedChanged(object sender, EventArgs e)
@@ -31,6 +39,7 @@ namespace Zinsrechner
             txt_Anfangskapital.Enabled = true;
             txt_Endkapital.Enabled = true;
             txt_Laufzeit.Enabled = true;
+            AusgewählteBerechnung = 2;
         }
 
         private void bt_Laufzeit_CheckedChanged(object sender, EventArgs e)
@@ -39,6 +48,7 @@ namespace Zinsrechner
             txt_Anfangskapital.Enabled = true;
             txt_Endkapital.Enabled = true;
             txt_Zinssatz.Enabled = true;
+            AusgewählteBerechnung = 3;
         }
 
         private void bt_Endkapital_CheckedChanged(object sender, EventArgs e)
@@ -47,6 +57,7 @@ namespace Zinsrechner
             txt_Anfangskapital.Enabled = true;
             txt_Laufzeit.Enabled = true;
             txt_Zinssatz.Enabled = true;
+            AusgewählteBerechnung = 4;
         }
 
         private void bt_reset_Click(object sender, EventArgs e)
@@ -64,6 +75,33 @@ namespace Zinsrechner
                     (item as RadioButton).Checked = default;
                 }
             }
+        }
+
+        private void berechnen()
+        {
+            switch (AusgewählteBerechnung)
+            {
+                ////Anfangskapitalberechnen
+                //case 1:
+                //    //Eingabe
+                //    Zinssatz = double.Parse(txt_Zinssatz.Text);
+                //    Laufzeit = int.Parse(txt_Laufzeit.Text);
+                //    Endkapital = double.Parse(txt_Endkapital.Text);
+
+                //    //Verarbeitung
+                //    Anfangskapital = Endkapital - (Zinssatz * 100 * 12)
+
+                //    break;
+                    
+                
+                //default:
+                //    break;
+            }
+        }
+
+        private void bt_Berechnen_Click(object sender, EventArgs e)
+        {
+            berechnen();
         }
     }
 }
