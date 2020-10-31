@@ -51,13 +51,19 @@ namespace Zinsrechner
 
         private void bt_reset_Click(object sender, EventArgs e)
         {
-            //foreach (var item in this.Controls)
-            //{
-            //    if ()
-            //    {
+            foreach (var item in this.Controls)
+            {
+                if (item is TextBox)
+                {
+                    (item as TextBox).Text = default;
+                    (item as TextBox).Enabled = true;
+                }
 
-            //    }
-            //}
+                if (item is RadioButton)
+                {
+                    (item as RadioButton).Checked = default;
+                }
+            }
         }
     }
 }
