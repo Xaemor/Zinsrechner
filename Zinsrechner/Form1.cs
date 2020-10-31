@@ -81,21 +81,23 @@ namespace Zinsrechner
         {
             switch (AusgewählteBerechnung)
             {
-                ////Anfangskapitalberechnen
-                //case 1:
-                //    //Eingabe
-                //    Zinssatz = double.Parse(txt_Zinssatz.Text);
-                //    Laufzeit = int.Parse(txt_Laufzeit.Text);
-                //    Endkapital = double.Parse(txt_Endkapital.Text);
+                //Anfangskapitalberechnen
+                case 1:
+                    //Eingabe
+                    Zinssatz = double.Parse(txt_Zinssatz.Text);
+                    Laufzeit = int.Parse(txt_Laufzeit.Text);
+                    Endkapital = double.Parse(txt_Endkapital.Text);
 
-                //    //Verarbeitung
-                //    Anfangskapital = Endkapital - (Zinssatz * 100 * 12)
+                    //Verarbeitung
+                    Anfangskapital = Endkapital / (100 + (Zinssatz * Laufzeit / 12)) * 100;
 
-                //    break;
-                    
-                
-                //default:
-                //    break;
+                    //Ausgabe
+                    txt_Anfangskapital.Text = Anfangskapital.ToString();
+                    break;
+
+
+                default:
+                    break;
             }
         }
 
