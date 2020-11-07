@@ -16,7 +16,7 @@ namespace Zinsrechner
         int AusgewählteBerechnung;
         double Anfangskapital;
         double Endkapital;
-        int Laufzeit;
+        double Laufzeit;
         double Zinssatz;
 
         public Form1()
@@ -94,9 +94,48 @@ namespace Zinsrechner
                     //Ausgabe
                     txt_Anfangskapital.Text = Anfangskapital.ToString();
                     break;
+                // Zinssatzberechnen
+                case 2:
+                    //Eingabe
+                    Laufzeit = int.Parse(txt_Laufzeit.Text);
+                    Endkapital = double.Parse(txt_Endkapital.Text);
+                    Anfangskapital = double.Parse(txt_Anfangskapital.Text);
 
+                    //Verarbeitung
+                    Zinssatz = ((Endkapital - Anfangskapital) * 100 * 12) / (Anfangskapital * Laufzeit);
+
+                    //Ausgabe
+                    txt_Zinssatz.Text = Zinssatz.ToString();
+                    break;
+                // Laufzeit berechnen
+                case 3:
+                    //Eingabe
+                    Endkapital = double.Parse(txt_Endkapital.Text);
+                    Anfangskapital = double.Parse(txt_Anfangskapital.Text);
+                    Zinssatz = double.Parse(txt_Zinssatz.Text);
+
+                    //Verarbeitung
+                    Laufzeit = ((Endkapital - Anfangskapital) * 100 * 12) / (Anfangskapital * Zinssatz);
+
+                    //Ausgabe
+                    txt_Laufzeit.Text = Laufzeit.ToString();
+                    break;
+                // Endkapitalberechnen
+                case 4:
+                    //Eingabe
+                    Anfangskapital = double.Parse(txt_Anfangskapital.Text);
+                    Zinssatz = double.Parse(txt_Zinssatz.Text);
+                    Laufzeit = double.Parse(txt_Laufzeit.Text);
+
+                    //Verarbeitung
+                    Endkapital = Anfangskapital + (Anfangskapital * Zinssatz * Laufzeit) / (100 * 12);
+
+                    //Ausgabe
+                    txt_Endkapital.Text = Endkapital.ToString();
+                    break;
 
                 default:
+
                     break;
             }
         }
